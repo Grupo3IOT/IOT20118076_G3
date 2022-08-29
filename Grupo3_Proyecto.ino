@@ -172,8 +172,9 @@ void loop()
     digitalWrite(ledMulti, LOW); //Apagar el LED multicolor
   } 
   else { //Si no cumple la condicion anterior
+    delay(2000);   //Espera por 2000 milisegundos = 2 segundos
+    digitalWrite(ledMulti, HIGH); //Enceder el LED multicolor
     if (data.humidity < 50) {
-      digitalWrite(ledMulti, HIGH); //Enceder el LED multicolor
       //Imprimir en el LCD
       lcd.clear(); //Limpia el LCD
       lcd.setCursor(0, 0); //Se ubica el curso en las posiciones (columna:0, fila:0)
@@ -182,7 +183,6 @@ void loop()
       lcd.print("poca humedad");  //Imprime la frase en el LCD
     }
     else {
-      digitalWrite(ledMulti, HIGH); //Enceder el LED multicolor
       //Imprimir en el LCD
       lcd.clear(); //Limpia el LCD
       lcd.setCursor(0, 0); //Se ubica el curso en las posiciones (columna:0, fila:0)
@@ -190,7 +190,7 @@ void loop()
       lcd.setCursor(0, 1); //Se ubica el curso en las posiciones (columna:0, fila:1)
       lcd.print("mucha humedad");  //Imprime la frase en el LCD
     }
-  }
+  }   
   delay(2000);   //Espera por 2000 milisegundos = 2 segundos
 }
 /********************************************************/
@@ -368,16 +368,6 @@ void MQQT_conexion(double h, double t, double hs, double p_hs) {
   }
 
   mqttClient.loop(); //Permite que el cliente procese los mensajes entrantes y mantenga la conexion al servidor
-
-  /*Extraemos los datos de la temperatura del DHT22 mediante la           funcion data.temperature y lo imprimimos con dos decimales*/
-  String T = String(t, 2);
-
-  /*Guardamos los datos del sensor de humedad del suelo con dos decimales en la variable HS*/
-  String HS = String(hs, 2);
-  /*Guardamos los datos del sensor de humedad del suelo en formato de porcentaje con dos decimales en la variable HSP*/
-  String HSP = String(p_hs, 2);
-  /*Guardamos los datos del sensor de DHT22 en la variable HR*/
-  String HR = String(h);
 
   /*Sensor DHT22*/
   // Se pasa el valor de la temperatura de DHT22 al servidor MQTT
