@@ -18,12 +18,12 @@ int trigPin = 12;   //pin G12 conectado al trigger del sensor
 int echoPin = 14;   //pin G14 conectado al echo del sensor
 
 //LED RGB
-int pinRed = 17;
-int pinGreen = 18;
-int pinBlue = 5;
+int pinRed = 17; //pin G17 conectado al anodo rojo
+int pinGreen = 18; //pin G18 conectado al anodo verde
+int pinBlue = 5; //pin G5 conectado al anodo azul
 
 //LED Rojo
-int ledrojo = 13;
+int ledrojo = 13; //pin G13 conectado al LED Rojo
 
 //LED multicolor
 int ledMulti = 33; //pin G33 conectado al LED multicolor
