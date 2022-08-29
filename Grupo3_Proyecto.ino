@@ -173,28 +173,22 @@ void loop()
   } 
   else { //Si no cumple la condicion anterior
     if (data.humidity < 50) {
-      digitalWrite(ledMulti, HIGH); //Enceder el LED multicolor      
-      for(int i=16;i>=1;i--){
-        //Imprimir en el LCD
-        lcd.clear(); //Limpia el LCD
-        lcd.setCursor(0, 0); //Se ubica el curso en las posiciones (columna:0, fila:0)
-        lcd.print("¡PELIGRO!");   //Imprime la frase en el LCD
-        lcd.setCursor(i, 1); //Se ubica el curso en las posiciones (columna:0, fila:1)
-        lcd.print("Poca humedad en el ambiente.");  //Imprime la frase en el LCD
-        delay(100);
-      }      
+      digitalWrite(ledMulti, HIGH); //Enceder el LED multicolor
+      //Imprimir en el LCD
+      lcd.clear(); //Limpia el LCD
+      lcd.setCursor(0, 0); //Se ubica el curso en las posiciones (columna:0, fila:0)
+      lcd.print("Planta en peligro");   //Imprime la frase en el LCD
+      lcd.setCursor(0, 1); //Se ubica el curso en las posiciones (columna:0, fila:1)
+      lcd.print("poca humedad");  //Imprime la frase en el LCD
     }
     else {
       digitalWrite(ledMulti, HIGH); //Enceder el LED multicolor
-      for(int i=16;i>=1;i--){
-        //Imprimir en el LCD
-        lcd.clear(); //Limpia el LCD
-        lcd.setCursor(0, 0); //Se ubica el curso en las posiciones (columna:0, fila:0)
-        lcd.print("¡PELIGRO!");   //Imprime la frase en el LCD
-        lcd.setCursor(i, 1); //Se ubica el curso en las posiciones (columna:0, fila:1)
-        lcd.print("Mucha humedad en el ambiente.");  //Imprime la frase en el LCD
-        delay(100);
-      }
+      //Imprimir en el LCD
+      lcd.clear(); //Limpia el LCD
+      lcd.setCursor(0, 0); //Se ubica el curso en las posiciones (columna:0, fila:0)
+      lcd.print("Planta en peligro");   //Imprime la frase en el LCD
+      lcd.setCursor(0, 1); //Se ubica el curso en las posiciones (columna:0, fila:1)
+      lcd.print("mucha humedad");  //Imprime la frase en el LCD
     }
   }
   delay(2000);   //Espera por 2000 milisegundos = 2 segundos
